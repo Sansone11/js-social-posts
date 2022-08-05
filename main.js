@@ -113,17 +113,13 @@ const posts = [
 
 const cardElement = document.getElementById('container');
 
-
-
-
-
 posts.forEach((element) => {
     let image = element.author.image;
     let buttonlikesEL = `<a class="like-button  js-like-button" href="#" data-postid="${element.id}">
 <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
 <span class="like-button__label">Mi Piace</span>
 </a>`;
-    
+
     if (image === null) {
         image = 'https://unsplash.it/300/300?image='
     }
@@ -157,6 +153,20 @@ posts.forEach((element) => {
 });
 
 // mi creo una variabile button,con query sel all.
-const buttonLike = document.querySelectorAll()
+const buttonLike = document.querySelectorAll('.likes__cta');
 // faccio un forEach sulla variabile stessa
-// per ogni elemento applico l'add event.l
+buttonLike.forEach((element) => {
+    // per ogni elemento applico l'add event.l
+    element.addEventListener("click", function () {
+        this.style.color = "red";
+        idpost = this.dataset.postid
+        const postElement = document.querySelector('#post-' + idpost + ' .js-likes-counter');
+        postElement.innerhtml++
+        this.classList.add('active');
+        this.innerHtml = 'you like this';
+    });
+    
+
+});
+
+
