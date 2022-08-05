@@ -39,16 +39,16 @@
 // CREO ARRAY VUOTO PER LIKES
 
 // CICLO FOREACH POSTS
-    // CREO VAR BTN-LIKEHELL = TEMPLATE LIT DEL PULSANTE
-    // AGGIUNGI GUARDONE AL BOTTONE 
-        // INCREMENTARE NUM LIKES 
-        // idpost = this.dataset.postid
-        // const postElement = queryselector('#post-' + idpost + ' .js-likes-counter')
-        // postElement.innerhtml++
+// CREO VAR BTN-LIKEHELL = TEMPLATE LIT DEL PULSANTE
+// AGGIUNGI GUARDONE AL BOTTONE 
+// INCREMENTARE NUM LIKES 
+// idpost = this.dataset.postid
+// const postElement = queryselector('#post-' + idpost + ' .js-likes-counter')
+// postElement.innerhtml++
 
-        // CAMBIARE COLORE DEL TESTO BOTTONE
-        // this.classList.add('active')
-        // this.innerHtml = 'you like this'
+// CAMBIARE COLORE DEL TESTO BOTTONE
+// this.classList.add('active')
+// this.innerHtml = 'you like this'
 
 
 
@@ -113,25 +113,21 @@ const posts = [
 
 const cardElement = document.getElementById('container');
 
-let buttonlikesEL =  `<a class="like-button  js-like-button" href="#" data-postid="1">
+let buttonlikesEL = `<a class="like-button  js-like-button" href="#" data-postid="">
 <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
 <span class="like-button__label">Mi Piace</span>
 </a>`;
 
-posts.forEach(element => {
-    let image  = element.author.image;
 
-    if(element.author.image === null) {
+
+posts.forEach(element => {
+    let image = element.author.image;
+    })
+    if (element.author.image === null) {
         image = 'https://unsplash.it/300/300?image='
     }
 
-    // stampa in console con singoli attributi cono dot.notation
-    console.log(element.id,element.content,element.media,element.author,element.name,element.image);
-    // stampa il contenuto delle stringhe dentro il div con Inner.
-    //  containerElement.innerHTML += `<div>nome : ${id.nome}<br>
-    //  content : ${element.content}<br>
-    //  author: ${element.autor}</div>`;
-    cardElement.innerHTML+=`<div class="post">
+    cardElement.innerHTML += `<div class="post" id="post-${element.id}">
     <div class="post__header">
         <div class="post-meta">                    
             <div class="post-meta__icon">
@@ -156,5 +152,6 @@ posts.forEach(element => {
                 Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
             </div>
         </div> 
-    </div>`
-});
+    </div>`;
+
+
